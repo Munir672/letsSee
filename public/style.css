@@ -1,0 +1,199 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting the stage for our universe */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #1F1C3A, #4E4B7D, #03A9F4); /* Deep Galactic Purple */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Particle Animation - Hyperactive Digital Dust */
+.body-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: particle-move 5s infinite ease-in-out alternate;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+.particle:nth-child(1) { top: 10%; left: 25%; animation-duration: 6s; }
+.particle:nth-child(2) { top: 30%; left: 70%; animation-duration: 7s; }
+.particle:nth-child(3) { top: 50%; left: 40%; animation-duration: 8s; }
+.particle:nth-child(4) { top: 75%; left: 10%; animation-duration: 9s; }
+.particle:nth-child(5) { top: 20%; left: 80%; animation-duration: 10s; }
+
+/* Particle movement animation */
+@keyframes particle-move {
+    0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    50% { transform: translateY(-40px) translateX(20px); opacity: 0.7; }
+    100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+}
+
+/* Floating Glitch Waves */
+.glitch-wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.6) 20%, rgba(80, 250, 123, 0.3) 80%);
+    animation: glitch-wave-animation 10s infinite linear alternate;
+    filter: blur(90px);
+    opacity: 0.2;
+}
+
+.glitch-wave:nth-child(1) { top: -20%; left: -20%; animation-duration: 15s; }
+.glitch-wave:nth-child(2) { bottom: -20%; right: -20%; animation-duration: 18s; }
+
+/* Glitch Wave Animation */
+@keyframes glitch-wave-animation {
+    0% { transform: translate(0, 0); opacity: 0.2; }
+    25% { transform: translate(-15px, -10px); opacity: 0.5; }
+    50% { transform: translate(15px, 20px); opacity: 0.8; }
+    75% { transform: translate(-5px, 10px); opacity: 0.4; }
+    100% { transform: translate(0, 0); opacity: 0.2; }
+}
+
+/* Task List Container with Holographic Touch */
+.app-container {
+    background: rgba(32, 34, 51, 0.9); /* Ultra Dark Holo Style */
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    transform: perspective(1500px) rotateX(10deg);
+    max-height: 80vh; /* Limits the height of the task container */
+    overflow-y: auto; /* Makes the container scrollable */
+}
+
+/* Header with Glitch Effect */
+header h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #F8F8F2;
+    font-size: 36px;
+    text-shadow: 0 0 25px rgba(255, 0, 150, 1), 0 0 15px rgba(0, 255, 255, 0.9);
+    animation: glitch-text 5s infinite alternate-reverse;
+}
+
+@keyframes glitch-text {
+    0% { text-shadow: 0 0 5px rgba(255, 0, 150, 1), 0 0 15px rgba(0, 255, 255, 0.9); }
+    50% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 1); }
+    100% { text-shadow: 0 0 5px rgba(255, 0, 150, 0.5), 0 0 10px rgba(0, 255, 255, 0.7); }
+}
+
+/* Task Section with Neon Inputs */
+.add-task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #6272A4;
+    border-radius: 4px;
+    background-color: #44475A;
+    color: #F8F8F2;
+    margin-right: 15px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 12px rgba(50, 250, 123, 0.6);
+}
+
+#task-input:focus {
+    border-color: #50FA7B;
+    outline: none;
+    box-shadow: 0 0 20px rgba(50, 250, 123, 1);
+}
+
+#add-task-btn {
+    padding: 12px 20px;
+    background-color: #50FA7B;
+    color: #1E1E2E;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(50, 250, 123, 0.6);
+}
+
+#add-task-btn:hover {
+    background-color: #3AD26D;
+    box-shadow: 0 0 30px rgba(50, 250, 123, 1);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #6272A4;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    color: #F8F8F2;
+}
+
+li.completed {
+    background-color: #44475A;
+    text-decoration: line-through;
+}
+
+li:hover {
+    transform: translateY(-10px);
+    background-color: #5A6588;
+    box-shadow: 0 0 30px rgba(255, 0, 150, 0.7);
+}
+
+/* Task Action Buttons with Neon Glow */
+li button {
+    background-color: #FF5555;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 85, 85, 0.7);
+}
+
+li button:hover {
+    background-color: #D43F3F;
+    box-shadow: 0 0 25px rgba(255, 85, 85, 1);
+}
